@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Digit Recogntition</title>
+        <style>
+            .canvas {
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Digit Recognition</h1>
+        <form id = "digit-form">
+            <canvas id="digit-canvas" class= "canvas" width = "280" height="280"></canvas>
+            <br>
+            <button type= "button" onclick="predict()">Predict</button>
+            <button type= "button" onclick="clearCanvas()">Reset</button>
+        </form>
+        <h2 id="predicted-digit">Predicted Digit: </h2>
+        <script src="/static/DigitScript.js"></script>
+        
+    </body>
+    <footer>&copy; 2024 Handwritten Digits ML Project</footer>
+
+
+</html>
+

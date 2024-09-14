@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+      "outFile": "./static/DigitScript.js",  // Define where the output JavaScript should go
+      "target": "ES6",                       // You can set your target ECMAScript version
+      "module": "none",                      // Set module system to none if you're not using modules
+    },
+    "exclude": [
+      "./static/DigitScript.js"              // Exclude the generated JS file from being compiled again
+    ]
+  }
+  
