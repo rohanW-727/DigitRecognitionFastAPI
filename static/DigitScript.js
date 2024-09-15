@@ -56,40 +56,39 @@ function clearCanvas() {
 function predict() {
     return __awaiter(this, void 0, void 0, function () {
         var smallCanvas, smallCtx, imageData, imageArray, i, avg, response, result, error_1;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
+        var _a;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
                 case 0:
                     smallCanvas = document.createElement('canvas');
+                    smallCtx = smallCanvas.getContext('2d');
+                    document.body.appendChild(smallCanvas);
                     smallCanvas.width = 28;
                     smallCanvas.height = 28;
-                    smallCtx = smallCanvas.getContext('2d');
-                    smallCtx.fillStyle = 'black';
-                    smallCtx.fillRect(0, 0, smallCanvas.width, smallCanvas.height);
-                    document.body.appendChild(smallCanvas);
-                    smallCtx === null || smallCtx === void 0 ? void 0 : smallCtx.drawImage(canvas, 0, 0, 280, 280, 0, 0, 28, 28);
-                    imageData = smallCtx.getImageData(0, 0, 28, 28);
+                    (_a = smallCanvas.getContext('2d')) === null || _a === void 0 ? void 0 : _a.drawImage(canvas, 0, 0, 280, 280, 0, 0, 28, 28);
+                    imageData = smallCanvas.getContext('2d').getImageData(0, 0, 28, 28);
                     imageArray = [];
                     for (i = 0; i < imageData.data.length; i += 4) {
                         avg = (imageData.data[i] + imageData.data[i + 1] + imageData.data[i + 2]) / 3;
-                        imageArray.push(avg / 255.0);
+                        imageArray.push(avg);
                     }
-                    _a.label = 1;
+                    _b.label = 1;
                 case 1:
-                    _a.trys.push([1, 4, , 5]);
+                    _b.trys.push([1, 4, , 5]);
                     return [4 /*yield*/, fetch('/predict', {
                             method: "POST",
                             headers: { "Content-Type": "application/json" },
                             body: JSON.stringify({ image: imageArray })
                         })];
                 case 2:
-                    response = _a.sent();
+                    response = _b.sent();
                     return [4 /*yield*/, response.json()];
                 case 3:
-                    result = _a.sent();
+                    result = _b.sent();
                     document.getElementById('predicted-digit').innerText = "Predicted Digit: ".concat(result.prediction);
                     return [3 /*break*/, 5];
                 case 4:
-                    error_1 = _a.sent();
+                    error_1 = _b.sent();
                     console.log("Error cannot predict Digit");
                     return [3 /*break*/, 5];
                 case 5: return [2 /*return*/];

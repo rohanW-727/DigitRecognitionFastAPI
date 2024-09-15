@@ -1,8 +1,7 @@
-from fastapi import FastAPI, Request, Form
+from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-import tensorflow as tf
 from pydantic import BaseModel
 from typing import List
 import numpy as np

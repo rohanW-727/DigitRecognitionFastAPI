@@ -31,7 +31,7 @@ async function predict() {
     const imageArray: number[] = [];
     for(let i = 0; i < imageData.data.length; i += 4) {
         const avg: number = (imageData.data[i] + imageData.data[i+1] + imageData.data[i+2])/ 3;
-        imageArray.push(avg / 255.0)
+        imageArray.push(avg)
     }
 
     try {
